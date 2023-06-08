@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registro de producto</title>
+</head>
+<body>
+  <h1>Registro de producto</h1>
+  <form id="productoForm" onsubmit="return validarFormulario()">
+    <label>Código:</label>
+    <input type="text" required><br><br>
+    
+    <label>Descripción:</label>
+    <input type="text" required><br><br>
+    
+    <label>Código de barras:</label>
+    <input type="text" required><br><br>
+    
+    <label>Precio unitario:</label>
+    <input type="number" required><br><br>
+    
+    <label>Stock:</label>
+    <input type="number" required><br><br>
+    
+    <label>Proveedor:</label>
+    <input type="text" required><br><br>
+    
+    <label>Estado:</label>
+    <select required>
+      <option value="">Selecciona un estado</option>
+      <option value="activo">Activo</option>
+      <option value="inactivo">Inactivo</option>
+    </select><br><br>
+    
+    <label>Categoría:</label>
+    <select required>
+      <option value="">Selecciona una categoría</option>
+      <option value="categoria1">Categoría 1</option>
+      <option value="categoria2">Categoría 2</option>
+      <option value="categoria3">Categoría 3</option>
+      <option value="categoria4">Categoría 4</option>
+    </select><br><br>
+    
+    <input type="submit" value="Guardar">
+    <input type="button" value="Cancelar">
+  </form>
+
+  <script>
+    function validarFormulario() {
+      var form = document.getElementById("productoForm");
+      var inputs = form.getElementsByTagName("input");
+      var select = form.getElementsByTagName("select")[0];
+      var camposVacios = false;
+
+      for (var i = 0; i < inputs.length; i++) {
+        if (inputs[i].value === "") {
+          camposVacios = true;
+          break;
+        }
+      }
+
+      if (select.value === "") {
+        camposVacios = true;
+      }
+
+      if (camposVacios) {
+        alert("Por favor completa todos los campos.");
+        return false;
+      }
+
+      // Redirigir a otra página o realizar alguna acción adicional
+    }
+  </script>
+</body>
+</html>
